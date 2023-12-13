@@ -1,0 +1,89 @@
+﻿@model Somativa.Models.Produto
+
+@{
+    ViewData["Title"] = "Criar";
+}
+
+<h1 class="my-5 text-center">Adicionar prato</h1>
+
+
+<div class="row justify-content-center text-white">
+    <div class="col-md-4 form-group p-4 mb-3" style="border-radius: 8px;border: 2px solid #000;background-color: #D42053;">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estoque" class="control-label"></label>
+                <input asp-for="Estoque" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" />
+                <span asp-validation-for="Estoque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label"></label>
+                <input asp-for="Preco" type="number" step=".01" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoriaId" class="control-label"></label>
+                <select asp-for="CategoriaId" class="form-control" asp-items="ViewBag.CategoriaId" style="border: 2px solid #000;background-color: #DCE9BE;"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FornecedorId" class="control-label"></label>
+                <select asp-for="FornecedorId" class="form-control" asp-items="ViewBag.FornecedorId" style="border: 2px solid #000;background-color: #DCE9BE;"></select>
+            </div>
+            <div class="form-group justify-content-center text-center mt-2">
+                <input type="submit" value="Criar" style="border-radius: 8px;border: 2px solid #000;background: #F5DC8A;" class="btn btn-primary px-2 text-dark mx-3 my-2" />
+                <a style="border-radius: 8px;border: 2px solid #000;background:  #99173C;" class="btn btn-primary px-2 text-dark text-decoration-none mx-3" asp-action="Index">Cancelar</a>
+            </div>
+            <!--
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProdutoId" />
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estoque" class="control-label"></label>
+                <input asp-for="Estoque" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" />
+                <span asp-validation-for="Estoque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label"></label>
+                <input asp-for="Preco" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoriaId" class="control-label"></label>
+                <select asp-for="CategoriaId" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" asp-items="ViewBag.CategoriaId"></select>
+                <span asp-validation-for="CategoriaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FornecedorId" class="control-label"></label>
+                <select asp-for="FornecedorId" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" asp-items="ViewBag.FornecedorId"></select>
+                <span asp-validation-for="FornecedorId" class="text-danger"></span>
+            </div>
+            <div class="form-group justify-content-center text-center mt-2">
+                <input type="submit" value="Criar" style="border-radius: 8px;border: 2px solid #000;background: #F5DC8A;" class="btn btn-primary px-2 text-dark mx-3 my-2" />
+                <a style="border-radius: 8px;border: 2px solid #000;background:  #99173C;" class="btn btn-primary px-2 text-dark text-decoration-none mx-3" asp-action="Index">Cancelar</a>
+            </div>
+            -->
+          
+        </form>
+       
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+
+

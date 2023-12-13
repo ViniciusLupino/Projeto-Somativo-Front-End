@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Somativa.Models.Produto>
+
+@{
+    ViewData["Title"] = "Relatório de Pratos";
+
+    List<Categoria> categorias = new List<Categoria>();
+    categorias.Add(new Categoria { CategoriaId = new Guid(), Nome = "Todas" });
+    var categ = ViewData["Categ"] as List<Categoria>;
+
+    foreach (var item in categ)
+    {
+        categorias.Add(new Categoria { CategoriaId = item.CategoriaId, Nome = item.Nome });
+    }
+}
+
+<h1 class="text-center mb-3">Relatório de Pratos</h1>
+
+<form>
+    <div id="filtros" class=" my-5 row justify-content-lg-end justify-content-center  ">
+        <div class="  col-form-label col-2 text-md-end ">
+          Tipos:
+           </div>
+        <div class="col col-12 col-md-5 col-lg-3">
+            
+            <select name="inCategoria" class=" form-select" style="background-color: #F5DC8A;">
+                @foreach (var item in categorias)
+                {
+                    <option value="@item.CategoriaId">@item.Nome</option>
+                }
+            </select>
+        </div>
+        <div class=" col-form-label col-2  d-block d-md-none">
+            Tipos:
+        </div>
+        <div class="col col-12 col-md-5 col-lg-3">
+            <div class="input-group">
+                <label class="col-form-label col-2  d-none d-md-block"> Prato: </label>
+                <input name="inNome" type="text" style="background-color: #F5DC8A;" class="form-control" />
+                <button asp-action="SearchProd" class="btn btn-success input-group-text" style="background-color:#99173C"><svg bootstrap-icon="ZoomIn" width="24" height="24" aria-label="Alarms" class="text-dark"></svg></button>
+            </div>
+            </div>
+           
+           
+
+    </div>
+</form>
+<div class="table table-responsive">
+<table class="table">
+    <thead style="background-color: #99173C;border: 2px solid #000" class="py-5">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="border: 2px solid #000;background-color: #DCE9BE;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estoque)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Preco)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

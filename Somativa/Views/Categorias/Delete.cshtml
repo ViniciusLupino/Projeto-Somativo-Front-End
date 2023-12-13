@@ -1,0 +1,30 @@
+﻿@model Somativa.Models.Categoria
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="my-5 text-center">Deletar</h1>
+
+<h3 class="alert alert-danger ">Você realmente tem certeza de que deseja deletar </h3>
+
+<div class="row justify-content-center text-center">
+    <div class="col-md-4 ">
+        <form asp-action="Delete">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CategoriaId" />
+            <div class="form-group p-4 mb-2" style="border-radius: 8px;border: 2px solid #000;background-color: #D42053;">
+                <label asp-for="Nome" class="control-label"> </label>
+                <label class="form-control" style="background-color: #DCE9BE;">@Model.Nome</label>
+                <span asp-validation-for="Nome" class="text-danger"></span>
+                <input type="hidden" asp-for="CategoriaId" />
+                <input type="submit" value="Deletar" style="border-radius: 8px;border: 2px solid #000;background: #F5DC8A;" class="btn btn-primary px-2 text-dark mx-3 my-2" />
+                <a style="border-radius: 8px;border: 2px solid #000;background: #99173C;" class="btn btn-primary px-2 text-dark text-decoration-none mx-3" asp-action="Index">Cancelar</a>
+            </div>
+            
+   
+        </form>
+    </div>
+</div>
+
+

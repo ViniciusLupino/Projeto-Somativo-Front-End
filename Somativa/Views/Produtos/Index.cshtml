@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Somativa.Models.Produto>
+
+@{
+    ViewData["Title"] = "Pratos";
+}
+
+<h1 class="text-center mb-3">@ViewData["Title"]</h1>
+
+<p class="text-center ">
+    <a class="text-decoration-none text-dark" asp-action="Create">Adicionar</a>
+</p>
+<div class="table table-responsive">
+<table class="table">
+    <thead style="background-color: #99173C;border: 2px solid #000" class="py-5">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fornecedor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr style="border: 2px solid #000;background-color: #DCE9BE;">
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
+            </td>
+            <td class="text-end">
+                    <a asp-action="Edit" asp-route-id="@item.ProdutoId"><svg bootstrap-icon="PencilSquare" width="24" height="24" aria-label="Alarms" class="text-dark"></svg></a> |
+                    <a asp-action="Details" asp-route-id="@item.ProdutoId"><svg bootstrap-icon="ZoomIn" width="24" height="24" aria-label="Alarms" class="text-dark"></svg></a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProdutoId"><svg bootstrap-icon="Trash" width="24" height="24" aria-label="Alarms" class="text-dark"></svg></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

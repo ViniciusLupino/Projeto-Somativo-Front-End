@@ -1,0 +1,37 @@
+﻿@model Somativa.Models.Fornecedor
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h1 class="my-5 text-center">Adicionar fornecedor</h1>
+
+<div class="row justify-content-center text-white">
+    <div class="col-md-4 form-group p-4 mb-3" style="border-radius: 8px;border: 2px solid #000;background-color: #D42053;">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cnpj" class="control-label"></label>
+                <input asp-for="Cnpj" class="form-control" style="border: 2px solid #000;background-color: #DCE9BE;" />
+                <span asp-validation-for="Cnpj" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group justify-content-center text-center mt-2">
+                <input type="submit" value="Criar" style="border-radius: 8px;border: 2px solid #000;background: #F5DC8A;" class="btn btn-primary px-2 text-dark mx-3 my-2" />
+                <a style="border-radius: 8px;border: 2px solid #000;background:  #99173C;" class="btn btn-primary px-2 text-dark text-decoration-none mx-3" asp-action="Index">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

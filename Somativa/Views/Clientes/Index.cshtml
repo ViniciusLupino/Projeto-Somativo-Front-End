@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Somativa.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1 class="text-center mb-3">@ViewData["Title"]</h1>
+
+<p class="text-center">
+    <a class="text-decoration-none text-dark" asp-action="Create">Adicionar Cliente</a>
+</p>
+<div class="table table-responsive">
+
+
+<table class="table table-responsive">
+    <thead style="background-color: #99173C;border: 2px solid #000" class="py-5">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+            <tr style="border: 2px solid #000;background-color: #DCE9BE;">
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nascimento)
+            </td>
+            <td class="text-end">
+                    <a asp-action="Edit" asp-route-id="@item.ClienteId"><svg bootstrap-icon="PencilSquare" width="24" height="24" aria-label="Alarms" class="text-dark"></svg></a> |
+                    <a asp-action="Details" asp-route-id="@item.ClienteId"><svg bootstrap-icon="ZoomIn" width="24" height="24" aria-label="Alarms" class="text-dark"></svg></a> |
+                    <a asp-action="Delete" asp-route-id="@item.ClienteId"><svg bootstrap-icon="Trash" width="24" height="24" aria-label="Alarms" class="text-dark"></svg></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
